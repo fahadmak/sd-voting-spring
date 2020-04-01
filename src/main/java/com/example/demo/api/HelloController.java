@@ -10,4 +10,9 @@ public class HelloController {
     public String index() {
         return "Hello social distancers";
     }
+
+    @RequestMapping("/accessdenied")
+    public String access() {
+        return "Acces denied";
+    }
 }

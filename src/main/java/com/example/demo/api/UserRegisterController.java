@@ -19,13 +19,9 @@ public class UserRegisterController {
         userService.addUser(user);
     }
 
-    @GetMapping("/")
+    @GetMapping("/view")
     public List<User> getAllUsers() {
         return userService.getAllUser();
     }
 
-    @GetMapping("/users/{userId}")
-    public User getAllUserById(@PathVariable Long userId) {
-        return userService.getUserById(userId);
-    }
 }

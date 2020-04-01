@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="\"User\"")
+@Table(name="auth_user")
 public class User {
 
     @Id
@@ -22,7 +22,7 @@ public class User {
 
     public User () {}
 
-    public User(Long id, String userName, String password, String role) {
+    public User(Long id, String userName, String password, String role, boolean active) {
         this.userId = id;
         this.userName = userName;
         this.password = password;
