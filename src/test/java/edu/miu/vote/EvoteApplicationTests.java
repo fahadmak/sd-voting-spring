@@ -1,10 +1,10 @@
-package com.example.demo;
+package edu.miu.vote;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class EvoteApplicationTests {
 
 	@Test
 	void contextLoads() {
