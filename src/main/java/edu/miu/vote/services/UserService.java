@@ -13,26 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class UserService implements UserDetailsService {
-
-    @Autowired
-    UserRepository userRepository;
-
-    public void addUser(User user) {
-        userRepository.save(user);
-    }
-
-    public List<User> getAllUser() {
-        List<User> users = new ArrayList<>();
-        userRepository.findAll().forEach(users::add);
-        return users;
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findUserByUserName(username);
-        user.orElseThrow(() -> new UsernameNotFoundException("User not found " + username));
-        return user.map(MyUserDetails::new).get();
-    }
+public interface UserService {
+    public void addUser(User user);
+    public List<User> getAllUser();
 }

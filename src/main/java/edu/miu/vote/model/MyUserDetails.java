@@ -11,13 +11,13 @@ import java.util.stream.Collectors;
 
 public class MyUserDetails implements UserDetails {
 
-    private String userName;
+    private String username;
     private String password;
     private List<GrantedAuthority> roles;
     private boolean active;
 
     public MyUserDetails(User user) {
-        userName = user.getUserName();
+        username = user.getUsername();
         password = user.getPassword();
         active = user.isActive();
         roles = Arrays.stream(user.getRole().split(","))
@@ -36,7 +36,7 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     @Override
