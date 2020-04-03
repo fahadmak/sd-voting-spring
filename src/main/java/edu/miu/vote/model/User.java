@@ -1,7 +1,6 @@
 package edu.miu.vote.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="auth_user")
@@ -11,20 +10,23 @@ public class User {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long userId;
 
-    private String userName;
+    @Column(name="username")
+    private String username;
 
+    @Column(name="password")
     private String password;
 
     @Column(name="activeMem")
     private boolean active;
 
+    @Column(name="role")
     private String role;
 
     public User () {}
 
-    public User(Long id, String userName, String password, String role, boolean active) {
+    public User(Long id, String username, String password, String role, boolean active) {
         this.userId = id;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
         this.active = active;
         this.role = role;
@@ -38,12 +40,12 @@ public class User {
         this.userId = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
