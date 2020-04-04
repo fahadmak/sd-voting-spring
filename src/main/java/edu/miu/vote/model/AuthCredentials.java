@@ -1,6 +1,7 @@
 package edu.miu.vote.model;
 
 public class AuthCredentials {
+
     private String username;
     private String password;
 
