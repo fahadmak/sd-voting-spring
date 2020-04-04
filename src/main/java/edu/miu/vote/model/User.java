@@ -1,6 +1,7 @@
 package edu.miu.vote.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="auth_user")
@@ -10,9 +11,11 @@ public class User {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long userId;
 
+    @NotEmpty(message = "Username may not be empty")
     @Column(name="username")
     private String username;
 
+    @NotEmpty(message = "Password may not be empty")
     @Column(name="password")
     private String password;
 
