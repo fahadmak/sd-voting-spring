@@ -1,4 +1,4 @@
-package edu.miu.vote.model;
+package edu.miu.vote.domain;
 
 public class AuthCredentials {
 

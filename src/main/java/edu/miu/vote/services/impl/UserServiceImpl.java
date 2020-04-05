@@ -1,7 +1,8 @@
-package edu.miu.vote.services;
+package edu.miu.vote.services.impl;
 
-import edu.miu.vote.model.User;
-import edu.miu.vote.repositories.UserRepository;
+import edu.miu.vote.domain.User;
+import edu.miu.vote.dao.UserRepository;
+import edu.miu.vote.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
