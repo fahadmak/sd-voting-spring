@@ -1,7 +1,7 @@
 package edu.miu.vote.controller;
 
-import edu.miu.vote.model.AuthCredentials;
-import edu.miu.vote.model.AuthResponse;
+import edu.miu.vote.domain.AuthCredentials;
+import edu.miu.vote.domain.AuthResponse;
 import edu.miu.vote.security.JWTUtil;
 import edu.miu.vote.security.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

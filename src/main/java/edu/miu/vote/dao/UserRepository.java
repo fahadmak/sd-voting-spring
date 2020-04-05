@@ -1,8 +1,7 @@
-package edu.miu.vote.repositories;
+package edu.miu.vote.dao;
 
-import edu.miu.vote.model.User;
+import edu.miu.vote.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 

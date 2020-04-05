@@ -1,6 +1,6 @@
 package edu.miu.vote.controller;
 
-import edu.miu.vote.model.User;
+import edu.miu.vote.domain.User;
 import edu.miu.vote.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +10,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 
 @RestController
 public class UserRegisterController {
