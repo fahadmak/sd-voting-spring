@@ -1,8 +1,27 @@
-package edu.miu.vote.model;
+package edu.miu.vote.domain;
 
-public class Candidate extends Voter implements Option {
+import javax.persistence.*;
+
+@Entity
+@Embeddable
+public class Candidate extends Voter { // implements  Option
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long candidateId;
     private int score;
     private boolean isWinner;
+
+    public void setScore(int score) { // calculated
+        this.score = score;
+    }
+
+    public boolean isWinner() {
+        return isWinner;
+    }
+
+    public void setWinner(boolean winner) {
+        isWinner = winner;
+    }
 
     public Candidate() {
         super();
@@ -10,13 +29,18 @@ public class Candidate extends Voter implements Option {
         this.isWinner = false;
     }
 
-    @Override
-    public int getScore() {
-        return 0;
+    public Long getCandidateId() {
+        return candidateId;
     }
 
-    @Override
-    public String getWinner() {
-        return null;
+    public void setCandidateId(Long candidateId) {
+        this.candidateId = candidateId;
     }
+
+    public int getScore() {
+        return score;
+    }
+
 }
+
+

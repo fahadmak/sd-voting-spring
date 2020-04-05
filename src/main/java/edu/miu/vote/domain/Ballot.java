@@ -1,48 +1,47 @@
-package edu.miu.vote.model;
+package edu.miu.vote.domain;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Embeddable
 public class Ballot {
-    private int voterId;
-    private Option option;
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private Long id; // serial number later on.
+    private Long voterId;
+    @OneToOne
+    private Candidate candidateVoted; // direct 1 : 1
     private Date timeVoted;
 
     public Ballot() {}
 
-    public Ballot(int voterId, Option option) {
+    public Ballot(Long voterId, Candidate candidateVoted) {
         this.voterId = voterId;
-        this.option = option;
+        this.candidateVoted  = candidateVoted; ;
         this.timeVoted = new Date();
     }
 
-    public int getVoterId() {
+
+    public Long getId() {
+        return id;
+    }
+
+    public Long getVoterId() {
         return voterId;
     }
 
-    public void setVoterId(int voterId) {
-        this.voterId = voterId;
-    }
-
-    public Option getOption() {
-        return option;
-    }
-
-    public void setOption(Option option) {
-        this.option = option;
+    public Candidate getCandidateVoted() {
+        return candidateVoted;
     }
 
     public Date getTimeVoted() {
         return timeVoted;
     }
 
-    public void setTimeVoted(Date timeVoted) {
-        this.timeVoted = timeVoted;
-    }
-
-    public void addBallot(int voterId, Option option) {
-        this.voterId = voterId;
-        this.option = option;
+    public void setOptionVoted(Candidate candidateVoted) {
+        this.candidateVoted = candidateVoted;
         this.timeVoted = new Date();
     }
-
 }

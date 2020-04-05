@@ -1,44 +1,24 @@
-<<<<<<< HEAD
-
 package edu.miu.vote.domain;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Date;
-
-
-public abstract class Poll {
-    Long id;
-    String title;
-    String description;
-    String guidelines;
-    Date startTime;
-    Date endTime;
-
-    @Autowired
-    Result result;
-=======
-=======
->>>>>>> 52699416a9e06704f984e8e0ffb616c298a35473
-package edu.miu.vote.model;
-
+import javax.persistence.ElementCollection;
 import java.util.Date;
 import java.util.List;
 
 public abstract class Poll {
-    private int id;
+
     private String title;
     private String description;
     private String guidelines;
     private Date startTime;
     private Date endTime;
-    private Result result;
+
+    @ElementCollection
     private List<Ballot> ballot;
 
     public Poll() {}
 
-    public Poll(int id, String title, String description, String guidelines, Date startTime, Date endTime) {
-        this.id = id;
+    public Poll(String title, String description, String guidelines, Date startTime, Date endTime) {
+
         this.title = title;
         this.description = description;
         this.guidelines = guidelines;
@@ -46,14 +26,7 @@ public abstract class Poll {
         this.endTime = endTime;
     }
 
-    public int getId() {
-        return id;
-    }
 
-<<<<<<< HEAD
->>>>>>> 52699416a9e06704f984e8e0ffb616c298a35473
-=======
->>>>>>> 52699416a9e06704f984e8e0ffb616c298a35473
 
     public String getTitle() {
         return title;
@@ -95,32 +68,4 @@ public abstract class Poll {
         this.endTime = endTime;
     }
 
-    public Result getResult() {
-        return result;
-    }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 52699416a9e06704f984e8e0ffb616c298a35473
-    public void setResult(Result result) {
-        this.result = result;
-    }
-
-    public List<Ballot> getBallot() {
-        return ballot;
-    }
-
-    public void setBallot(List<Ballot> ballot) {
-        this.ballot = ballot;
-    }
-
-    public abstract Result displayResults();
-
-    public abstract Result generateResults();
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 52699416a9e06704f984e8e0ffb616c298a35473
 }

@@ -1,32 +1,35 @@
-package edu.miu.vote.model;
+package edu.miu.vote.domain;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+@Entity
 public class Election extends Poll {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long id;
+
+    @ElementCollection
     List<Candidate> candidates;
 
-    public Election(int id, String title, String description, String guidelines, Date startTime, Date endTime) {
-        super(id, title, description, guidelines, startTime, endTime);
-        this.candidates = new ArrayList<>();
+    public Election(){}
+
+    public Election(String title, String description, String guidelines, Date startTime, Date endTime) {
+        super(title, description, guidelines, startTime, endTime);
+        this.candidates = new ArrayList<>();            // new keyword here
     }
 
-    public List<Candidate> displayCandidates() {
+    public Long getId() {
+        return id;
+    }
+
+    public List<Candidate> getCandidates() {
         return candidates;
     }
 
-    public void addCandidate(Candidate candidate) {
-        candidates.add(candidate);
-    }
-
-    @Override
-    public Result displayResults() {
-        return null;
-    }
-
-    @Override
-    public Result generateResults() {
-        return null;
+    public void setCandidates(List<Candidate> options) {
+        this.candidates = candidates;
     }
 }
