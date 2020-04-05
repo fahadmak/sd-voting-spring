@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 package edu.miu.vote.domain;
 
@@ -17,6 +18,8 @@ public abstract class Poll {
     @Autowired
     Result result;
 =======
+=======
+>>>>>>> 52699416a9e06704f984e8e0ffb616c298a35473
 package edu.miu.vote.model;
 
 import java.util.Date;
@@ -47,6 +50,9 @@ public abstract class Poll {
         return id;
     }
 
+<<<<<<< HEAD
+>>>>>>> 52699416a9e06704f984e8e0ffb616c298a35473
+=======
 >>>>>>> 52699416a9e06704f984e8e0ffb616c298a35473
 
     public String getTitle() {
@@ -93,7 +99,10 @@ public abstract class Poll {
         return result;
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 52699416a9e06704f984e8e0ffb616c298a35473
     public void setResult(Result result) {
         this.result = result;
     }
@@ -110,5 +119,8 @@ public abstract class Poll {
 
     public abstract Result generateResults();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 52699416a9e06704f984e8e0ffb616c298a35473
 }
