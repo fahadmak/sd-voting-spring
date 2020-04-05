@@ -3,13 +3,10 @@ package edu.miu.vote.controller;
 import edu.miu.vote.domain.AuthCredentials;
 import edu.miu.vote.domain.AuthResponse;
 import edu.miu.vote.security.JWTUtil;
-import edu.miu.vote.security.UserDetailsServiceImpl;
+import edu.miu.vote.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +19,7 @@ public class AuthenticationController {
     AuthenticationManager authenticationManager;
 
     @Autowired
-    UserDetailsServiceImpl userDetailsService;
+    UserService userService;
 
     @Autowired
     JWTUtil jwtUtil;
@@ -39,15 +36,6 @@ public class AuthenticationController {
 
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthCredentials authCredentials) throws Exception {
-        try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authCredentials.getUsername(),
-                    authCredentials.getPassword()));
-        } catch (BadCredentialsException e) {
-            throw new Exception("Incorrect user name or password");
-        }
-
-        UserDetails userDetails = userDetailsService.loadUserByUsername(authCredentials.getUsername());
-        String jwtToken = jwtUtil.generateToken(userDetails);
-        return ResponseEntity.ok(new AuthResponse(jwtToken));
+        return ResponseEntity.ok(new AuthResponse(userService.signIn(authCredentials)));
     }
 }
