@@ -1,4 +1,4 @@
-package edu.miu.vote.model;
+package edu.miu.vote.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

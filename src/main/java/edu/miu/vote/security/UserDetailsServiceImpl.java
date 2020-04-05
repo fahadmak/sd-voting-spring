@@ -1,8 +1,8 @@
 package edu.miu.vote.security;
 
-import edu.miu.vote.model.MyUserDetails;
-import edu.miu.vote.model.User;
-import edu.miu.vote.repositories.UserRepository;
+import edu.miu.vote.domain.MyUserDetails;
+import edu.miu.vote.domain.User;
+import edu.miu.vote.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
