@@ -1,4 +1,4 @@
-package edu.miu.vote.model;
+package edu.miu.vote.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
