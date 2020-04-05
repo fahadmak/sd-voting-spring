@@ -16,24 +16,19 @@ public class JWTUtil {
 
     private String SECRET_KEY = "EBA6C1E853928762A48B68A58DD9E7D9EA2CEB16DD3357AE45881F5AB1";
 
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(String username) {
         Map<String, Object> claims = new HashMap<>();
-        return Jwts.builder().setClaims(claims).setSubject(userDetails.getUsername()).setIssuedAt(new Date(System.currentTimeMillis()))
+        return Jwts.builder().setClaims(claims).setSubject(username).setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
     }
 
     public String extractUserName(String token) {
-        return extractClaims(token, Claims::getSubject);
-    }
-
-    public <T> T extractClaims(String token, Function<Claims, T> claimResolver) {
-        final Claims claims = extractAllClaims(token);
-        return claimResolver.apply(claims);
+        return extractAllClaims(token).getSubject();
     }
 
     public Date getExpiryDate(String token) {
-        return extractClaims(token, Claims::getExpiration);
+        return extractAllClaims(token).getExpiration();
     }
 
     public Boolean isExpired(String token) {
