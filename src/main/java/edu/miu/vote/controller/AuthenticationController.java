@@ -14,15 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AuthenticationController {
-
-    @Autowired
-    AuthenticationManager authenticationManager;
-
     @Autowired
     UserService userService;
-
-    @Autowired
-    JWTUtil jwtUtil;
 
     @RequestMapping("/")
     public String index() {
