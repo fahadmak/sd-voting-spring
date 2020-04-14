@@ -29,9 +29,6 @@ public class UserRegisterController {
         return ResponseEntity.created(location).body(new AuthResponse(token));
     }
 
-    @GetMapping("/users")
-    public ResponseEntity<?> getAllUsers() {
-        return ResponseEntity.ok(userService.getAllUser());
-    }
+
 
 }
