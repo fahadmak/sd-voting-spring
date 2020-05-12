@@ -1,17 +1,32 @@
 package edu.miu.vote.domain;
 
+import javax.persistence.ElementCollection;
 import java.util.Date;
-
+import java.util.List;
 
 public abstract class Poll {
-    Long id;
-    String title;
-    String description;
-    String guidelines;
-    Date startTime;
-    Date endTime;
 
-    Result result;
+    private String title;
+    private String description;
+    private String guidelines;
+    private Date startTime;
+    private Date endTime;
+
+    @ElementCollection
+    private List<Ballot> ballot;
+
+    public Poll() {}
+
+    public Poll(String title, String description, String guidelines, Date startTime, Date endTime) {
+
+        this.title = title;
+        this.description = description;
+        this.guidelines = guidelines;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
+
 
     public String getTitle() {
         return title;
@@ -53,11 +68,4 @@ public abstract class Poll {
         this.endTime = endTime;
     }
 
-    public Result getResult() {
-        return result;
-    }
-
-//    public void setResult(Result result) {
-//        this.result = result;
-//    }
 }
